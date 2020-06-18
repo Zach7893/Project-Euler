@@ -11,12 +11,22 @@ fn main() {
     let mut y = 2;
     let mut z = 0;
 
-    while z <= 4000000 {
+    while z < 4000000 {
         z = x + y;
-        numbers.push(z);
+        if z < 4000000 {
+            numbers.push(z);
+        }
         x = y;
         y = z;
     }
 
-    println!("{:?}",numbers);
+    //println!("{:?}",numbers);
+
+    for n in &numbers {
+        if n % 2 == 0 {
+            total += n;
+        }
+    }
+
+    println!("{}",total);
 }
